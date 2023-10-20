@@ -3,6 +3,7 @@ import 'package:calibre_mt/views/now_playing_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:on_audio_query/on_audio_query.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -119,7 +120,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                   SongController.audioPlayer.setAudioSource(
                                       SongController.createSongList(item.data!),
                                       initialIndex: index);
-
+                                  context
+                                      .read<SongModelProvider>()
+                                      .setId(item.data![index].id);
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(

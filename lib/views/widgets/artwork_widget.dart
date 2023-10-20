@@ -11,8 +11,8 @@ class ArtWorkWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    return Container(
-      decoration: BoxDecoration(border: Border.all(color: Colors.white)),
+    return Card(
+      color: Colors.black,
       child: QueryArtworkWidget(
         id: context.watch<SongModelProvider>().id,
         type: ArtworkType.AUDIO,

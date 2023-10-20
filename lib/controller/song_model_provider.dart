@@ -8,6 +8,7 @@ class SongModelProvider with ChangeNotifier {
   int get id => _id;
   void setId(int id) {
     _id = id;
+    print(_id);
     notifyListeners();
   }
 }

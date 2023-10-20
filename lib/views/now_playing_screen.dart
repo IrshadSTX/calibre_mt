@@ -18,19 +18,6 @@ class _MediaPlayerScreenState extends State<MediaPlayerScreen> {
   Duration _duration = const Duration();
   Duration _position = const Duration();
 
-  void initState() {
-    SongController.audioPlayer.currentIndexStream.listen((index) {
-      if (index != null) {
-        setState(() {
-          currentIndex = index;
-        });
-        SongController.currentIndexes = index;
-      }
-    });
-    super.initState();
-    playSong();
-  }
-
   void playSong() {
     SongController.audioPlayer.play();
     SongController.audioPlayer.durationStream.listen((d) {
@@ -43,6 +30,19 @@ class _MediaPlayerScreenState extends State<MediaPlayerScreen> {
         _position = p;
       });
     });
+  }
+
+  void initState() {
+    SongController.audioPlayer.currentIndexStream.listen((index) {
+      if (index != null) {
+        setState(() {
+          currentIndex = index;
+        });
+        SongController.currentIndexes = index;
+      }
+    });
+    super.initState();
+    playSong();
   }
 
   @override
