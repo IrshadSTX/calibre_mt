@@ -16,8 +16,8 @@ class ArtWorkWidget extends StatelessWidget {
       child: QueryArtworkWidget(
         id: context.watch<SongModelProvider>().id,
         type: ArtworkType.AUDIO,
-        artworkHeight: 300,
-        artworkWidth: 300,
+        artworkHeight: size.height * 0.33,
+        artworkWidth: size.width * 0.7,
         artworkFit: BoxFit.cover,
         nullArtworkWidget: Icon(
           Icons.music_note,
