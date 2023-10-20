@@ -1,3 +1,4 @@
+import 'package:calibre_mt/controller/song_model_provider.dart';
 import 'package:calibre_mt/views/now_playing_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
@@ -115,25 +116,16 @@ class _HomeScreenState extends State<HomeScreen> {
                                         color: Colors.blueGrey,
                                         fontSize: 12)),
                                 onTap: () {
-                                  // GetAllSongController.audioPlayer
-                                  //     .setAudioSource(
-                                  //         GetAllSongController
-                                  //             .createSongList(item.data!),
-                                  //         initialIndex: index);
+                                  SongController.audioPlayer.setAudioSource(
+                                      SongController.createSongList(item.data!),
+                                      initialIndex: index);
 
-                                  // GetRecentSongController.addRecentlyPlayed(
-                                  //     item.data![index].id);
-                                  // GetTopBeatsController.addTopBeats(
-                                  //     item.data![index].id);
-                                  // context
-                                  //     .read<SongModelProvider>()
-                                  //     .setId(item.data![index].id);
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
                                       builder: (context) => MediaPlayerScreen(
-                                          // songModelList: item.data!,
-                                          ),
+                                        songModelList: item.data!,
+                                      ),
                                     ),
                                   );
                                 },
